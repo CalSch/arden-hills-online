@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://qiqiiguc1uck"]
+
+[ext_resource type="Script" uid="uid://2nrsf5r02h4w" path="res://addons/MultiplayCore/MultiPlay.gd" id="1_yqjtg"]
+[ext_resource type="Script" uid="uid://bnj0qrwkitu1o" path="res://addons/MultiplayCore/MPPlayersCollection.gd" id="2_lnu2h"]
+[ext_resource type="Script" uid="uid://c17ggcl7t2uku" path="res://addons/MultiplayCore/MPPlayer.gd" id="3_lbhrr"]
+[ext_resource type="Script" uid="uid://c3use2yqm7inc" path="res://addons/MultiplayCore/net_protocols/LatencyNetProtocol.gd" id="4_iywne"]
+
+[node name="Game" type="Node3D" unique_id=1179573262]
+
+[node name="MultiPlayCore" type="Node" parent="." unique_id=399790638]
+script = ExtResource("1_yqjtg")
+swap_input_action = "no"
+metadata/_custom_type_script = "uid://2nrsf5r02h4w"
+
+[node name="MPPlayersCollection" type="Node" parent="MultiPlayCore" unique_id=2132944090]
+script = ExtResource("2_lnu2h")
+metadata/_custom_type_script = "uid://bnj0qrwkitu1o"
+
+[node name="MPPlayer" type="Node" parent="MultiPlayCore/MPPlayersCollection" unique_id=351441536]
+script = ExtResource("3_lbhrr")
+metadata/_custom_type_script = "uid://c17ggcl7t2uku"
+
+[node name="LatencyNetProtocol" type="Node" parent="MultiPlayCore" unique_id=1533571412]
+script = ExtResource("4_iywne")
+metadata/_custom_type_script = "uid://c3use2yqm7inc"
