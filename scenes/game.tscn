@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bnj0qrwkitu1o" path="res://addons/MultiplayCore/MPPlayersCollection.gd" id="2_lnu2h"]
 [ext_resource type="Script" uid="uid://c17ggcl7t2uku" path="res://addons/MultiplayCore/MPPlayer.gd" id="3_lbhrr"]
 [ext_resource type="Script" uid="uid://c3use2yqm7inc" path="res://addons/MultiplayCore/net_protocols/LatencyNetProtocol.gd" id="4_iywne"]
+[ext_resource type="PackedScene" uid="uid://t2ch5qfkaols" path="res://models/terrain/ground.glb" id="5_iywne"]
 
 [node name="Game" type="Node3D" unique_id=1179573262]
 
@@ -23,3 +24,6 @@ metadata/_custom_type_script = "uid://c17ggcl7t2uku"
 [node name="LatencyNetProtocol" type="Node" parent="MultiPlayCore" unique_id=1533571412]
 script = ExtResource("4_iywne")
 metadata/_custom_type_script = "uid://c3use2yqm7inc"
+
+[node name="ground" parent="." unique_id=2137883081 instance=ExtResource("5_iywne")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8887679, 0, 0.027385473)
