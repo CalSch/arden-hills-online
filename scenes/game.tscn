@@ -1,29 +1,37 @@
 [gd_scene format=3 uid="uid://qiqiiguc1uck"]
 
-[ext_resource type="Script" uid="uid://2nrsf5r02h4w" path="res://addons/MultiplayCore/MultiPlay.gd" id="1_yqjtg"]
-[ext_resource type="Script" uid="uid://bnj0qrwkitu1o" path="res://addons/MultiplayCore/MPPlayersCollection.gd" id="2_lnu2h"]
-[ext_resource type="Script" uid="uid://c17ggcl7t2uku" path="res://addons/MultiplayCore/MPPlayer.gd" id="3_lbhrr"]
-[ext_resource type="Script" uid="uid://c3use2yqm7inc" path="res://addons/MultiplayCore/net_protocols/LatencyNetProtocol.gd" id="4_iywne"]
-[ext_resource type="PackedScene" uid="uid://t2ch5qfkaols" path="res://models/terrain/ground.glb" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://t2ch5qfkaols" path="res://assets/models/terrain/ground.glb" id="5_iywne"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iywne"]
+sky_top_color = Color(0, 0.2901798, 0.6729932, 1)
+sky_horizon_color = Color(0.4711529, 0.6864026, 0.81414396, 1)
+sky_curve = 0.0989631
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.47058824, 0.6862745, 0.8156863, 1)
+ground_curve = 0.017411022
+
+[sub_resource type="Sky" id="Sky_yqjtg"]
+sky_material = SubResource("ProceduralSkyMaterial_iywne")
+
+[sub_resource type="Environment" id="Environment_lbhrr"]
+background_mode = 2
+background_energy_multiplier = 1.31
+sky = SubResource("Sky_yqjtg")
+ambient_light_source = 3
+ambient_light_color = Color(0.90011746, 0.92129564, 1.540184e-06, 1)
+fog_density = 0.001
+fog_sky_affect = 0.0
 
 [node name="Game" type="Node3D" unique_id=1179573262]
 
-[node name="MultiPlayCore" type="Node" parent="." unique_id=399790638]
-script = ExtResource("1_yqjtg")
-swap_input_action = "no"
-metadata/_custom_type_script = "uid://2nrsf5r02h4w"
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=916565604]
+environment = SubResource("Environment_lbhrr")
 
-[node name="MPPlayersCollection" type="Node" parent="MultiPlayCore" unique_id=2132944090]
-script = ExtResource("2_lnu2h")
-metadata/_custom_type_script = "uid://bnj0qrwkitu1o"
-
-[node name="MPPlayer" type="Node" parent="MultiPlayCore/MPPlayersCollection" unique_id=351441536]
-script = ExtResource("3_lbhrr")
-metadata/_custom_type_script = "uid://c17ggcl7t2uku"
-
-[node name="LatencyNetProtocol" type="Node" parent="MultiPlayCore" unique_id=1533571412]
-script = ExtResource("4_iywne")
-metadata/_custom_type_script = "uid://c3use2yqm7inc"
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1526732960]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [node name="ground" parent="." unique_id=2137883081 instance=ExtResource("5_iywne")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8887679, 0, 0.027385473)
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, -759.46783, 0)
+
+[editable path="ground"]
