@@ -1,25 +1,30 @@
 [gd_scene format=3 uid="uid://qiqiiguc1uck"]
 
-[ext_resource type="Script" uid="uid://2nrsf5r02h4w" path="res://addons/MultiplayCore/MultiPlay.gd" id="1_yqjtg"]
-[ext_resource type="Script" uid="uid://bnj0qrwkitu1o" path="res://addons/MultiplayCore/MPPlayersCollection.gd" id="2_lnu2h"]
-[ext_resource type="Script" uid="uid://c17ggcl7t2uku" path="res://addons/MultiplayCore/MPPlayer.gd" id="3_lbhrr"]
-[ext_resource type="Script" uid="uid://c3use2yqm7inc" path="res://addons/MultiplayCore/net_protocols/LatencyNetProtocol.gd" id="4_iywne"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8cj0n"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[node name="Game" type="Node3D" unique_id=1179573262]
+[sub_resource type="Sky" id="Sky_uwrxv"]
+sky_material = SubResource("ProceduralSkyMaterial_8cj0n")
 
-[node name="MultiPlayCore" type="Node" parent="." unique_id=399790638]
-script = ExtResource("1_yqjtg")
-swap_input_action = "no"
-metadata/_custom_type_script = "uid://2nrsf5r02h4w"
+[sub_resource type="Environment" id="Environment_yqjtg"]
+background_mode = 2
+sky = SubResource("Sky_uwrxv")
 
-[node name="MPPlayersCollection" type="Node" parent="MultiPlayCore" unique_id=2132944090]
-script = ExtResource("2_lnu2h")
-metadata/_custom_type_script = "uid://bnj0qrwkitu1o"
+[sub_resource type="PrismMesh" id="PrismMesh_4lq2i"]
 
-[node name="MPPlayer" type="Node" parent="MultiPlayCore/MPPlayersCollection" unique_id=351441536]
-script = ExtResource("3_lbhrr")
-metadata/_custom_type_script = "uid://c17ggcl7t2uku"
+[node name="Game" type="Node3D" unique_id=1757150955]
 
-[node name="LatencyNetProtocol" type="Node" parent="MultiPlayCore" unique_id=1533571412]
-script = ExtResource("4_iywne")
-metadata/_custom_type_script = "uid://c3use2yqm7inc"
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1311553519]
+environment = SubResource("Environment_yqjtg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=532971196]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1534776862]
+transform = Transform3D(86.46, 0, 0, 0, 1, 0, 0, 0, 105.055, 0, -1.6358093, 0)
+mesh = SubResource("PrismMesh_4lq2i")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=997055280]
+transform = Transform3D(0.82431346, -0.2790292, 0.49259523, 0, 0.8701041, 0.49286804, -0.5661337, -0.40627775, 0.7172385, 8, 7, 8)
