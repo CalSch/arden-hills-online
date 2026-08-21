@@ -22,7 +22,8 @@ ambient_light_color = Color(0.90011746, 0.92129564, 1.540184e-06, 1)
 fog_density = 0.001
 fog_sky_affect = 0.0
 
-[node name="Game" type="Node3D" unique_id=1179573262]
+[sub_resource type="Sky" id="Sky_uwrxv"]
+sky_material = SubResource("ProceduralSkyMaterial_8cj0n")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=916565604]
 environment = SubResource("Environment_lbhrr")

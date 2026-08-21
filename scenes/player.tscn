@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c0p304f76ldnf"]
+
+[ext_resource type="Script" uid="uid://c1j22sfjwl2ir" path="res://scripts/player.gd" id="1_3vyb7"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_4lq2i"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_3vyb7"]
+
+[node name="Player" type="Node3D" unique_id=1113857163]
+script = ExtResource("1_3vyb7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1847003822]
+mesh = SubResource("TorusMesh_4lq2i")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1897424327]
+replication_config = SubResource("SceneReplicationConfig_3vyb7")
