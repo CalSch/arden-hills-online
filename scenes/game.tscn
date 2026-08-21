@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://qiqiiguc1uck"]
 
+[ext_resource type="PackedScene" uid="uid://b7rdxwr4dv2mx" path="res://assets/models/terrain/ardenHills.glb" id="1_uwrxv"]
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8cj0n"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -28,3 +30,6 @@ mesh = SubResource("PrismMesh_4lq2i")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=997055280]
 transform = Transform3D(0.82431346, -0.2790292, 0.49259523, 0, 0.8701041, 0.49286804, -0.5661337, -0.40627775, 0.7172385, 8, 7, 8)
+
+[node name="ardenHills" parent="." unique_id=1739219324 instance=ExtResource("1_uwrxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4688835, -5.050415, 3.8527641)
