@@ -9,11 +9,26 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
-[node name="Player" type="Node3D" unique_id=1113857163]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4lq2i"]
+height = 0.5579834
+radius = 1.0102539
+
+[node name="Player" type="CharacterBody3D" unique_id=763762679]
+transform = Transform3D(0.02, 0, 0, 0, 0.16, 0, 0, 0, 0.02, 0, 0, 0)
 script = ExtResource("1_3vyb7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1847003822]
+layers = 2
 mesh = SubResource("TorusMesh_4lq2i")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1897424327]
 replication_config = SubResource("SceneReplicationConfig_3vyb7")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2143479022]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0.20712905, 0)
+cull_mask = 1048573
+current = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1762138517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013244629, 0)
+shape = SubResource("CylinderShape3D_4lq2i")

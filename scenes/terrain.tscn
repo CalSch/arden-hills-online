@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dmw0alaujo62j"]
+
+[ext_resource type="PackedScene" uid="uid://b7rdxwr4dv2mx" path="res://assets/models/terrain/ardenHills.glb" id="1_b0j75"]
+[ext_resource type="Shape3D" uid="uid://ba2yd5b482k41" path="res://assets/terrain_collision.tres" id="2_oqplg"]
+
+[node name="ardenHills" unique_id=1462129784 instance=ExtResource("1_b0j75")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Plane" parent_id_path=PackedInt32Array(1474200524) index="0" unique_id=759438221]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D" index="0" unique_id=354856307]
+shape = ExtResource("2_oqplg")
