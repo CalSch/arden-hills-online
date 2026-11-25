@@ -3,10 +3,11 @@ import OpenEXR
 import numpy as np
 import Imath
 import math
+import struct
 
 hills = Image.open("the_hills.tif")
 
-TILE_W=512
+TILE_W=256
 TILE_H=TILE_W
 
 COLS = math.ceil(hills.width/TILE_W)
@@ -15,11 +16,17 @@ ROWS = math.ceil(hills.height/TILE_H)
 # print(hills.getextrema())
 
 def save_exr(img:Image, name:str):
-    header = OpenEXR.Header(img.width, img.height)
-    header["channels"] = {"GRAY":Imath.Channel(Imath.PixelType(Imath.PixelType.FLOAT), 1, 1)}
-    exr_out=OpenEXR.OutputFile(name, header)
-    exr_out.writePixels({"GRAY": np.array(img).astype(np.float32)})
-    exr_out.close()
+    # pix=img.load()
+    with open(name,'wb') as f:
+        f.write(img.tobytes())
+        # for row in range(img.height):
+        #     for col in range(img.width):
+        #         f.write(bytearray(struct.pack('f',pix[col,row])))
+    # header = OpenEXR.Header(img.width, img.height)
+    # header["channels"] = {"GRAY":Imath.Channel(Imath.PixelType(Imath.PixelType.FLOAT), 1, 1)}
+    # exr_out=OpenEXR.OutputFile(name, header)
+    # exr_out.writePixels({"GRAY": np.array(img).astype(np.float32)})
+    # exr_out.close()
 
 
 print()
@@ -33,7 +40,9 @@ print(f"Y tiles: {ROWS}")
 # the last {columns,rows} will only have X {rows,columns} filled in
 print(f"X remainder: {hills.width%TILE_W}")
 print(f"Y remainder: {hills.height%TILE_H}")
-
+print()
+print(f"extrema: {hills.getextrema()}")
+print()
 
 def possible_tile_sizes():
     print()
@@ -48,8 +57,10 @@ def possible_tile_sizes():
             print(f"h={i} tiles={hills.height/i}")
 
 for row in range(ROWS):
+    print(f"{row=}")
     for col in range(COLS):
         # print(f"{row=} {col=}")
         cropped = hills.crop((col*TILE_W, row*TILE_H, (col+1)*TILE_W, (row+1)*TILE_H))
-        save_exr(cropped,f"exr_tiles/{col:02}_{row:02}.exr")
+        save_exr(cropped,f"exr_tiles/{col:02}_{row:02}.bin")
 
+save_exr(hills,"the_hills.exr")

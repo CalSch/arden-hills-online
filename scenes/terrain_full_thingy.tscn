@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dxi5v560ay2ct"]
+
+[ext_resource type="Script" uid="uid://b3osspde5usmd" path="res://scripts/thang.gd" id="1_gdar6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pi2iu"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_gdar6"]
+sky_material = SubResource("ProceduralSkyMaterial_pi2iu")
+
+[sub_resource type="Environment" id="Environment_neomw"]
+background_mode = 2
+sky = SubResource("Sky_gdar6")
+
+[node name="gup" type="Node3D" unique_id=1523663325]
+script = ExtResource("1_gdar6")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1623359247]
+environment = SubResource("Environment_neomw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1890791303]
+transform = Transform3D(-0.17135152, -0.057032805, -0.9835578, -0.9335202, -0.30971906, 0.18059367, -0.3149263, 0.9491161, -0.0001704432, 0, 0, 0)
+shadow_enabled = true
