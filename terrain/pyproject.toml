@@ -1,0 +1,8 @@
+[project]
+name = "terrain"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "openexr>=3.5.5",
+    "pillow>=13.0.0",
+]

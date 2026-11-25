@@ -10,7 +10,7 @@ arden_hills_color.tif: ah_color.sh
 
 exr_tiles the_hills.exr: the_hills.tif split.py
 	mkdir -vp exr_tiles
-	python3 split.py
+	uv run split.py
 
 clean:
 	rm -rvf tiles/ exr_tiles/ arden_hills_color.tif the_hills.tif sota.vrt
